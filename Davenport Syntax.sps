@@ -2,7 +2,6 @@
 * Encoding: UTF-8.
 
 * 1. DATA ENTRY DEFINITION SYSTEM.
-* Configured to read demographic text strings and process numeric matrices natively.
 DATA LIST FREE / 
     Q1 (A100)  /* Gender Demographics */
     Q2 (A100)  /* Age Cohorts */
@@ -22,7 +21,7 @@ DATA LIST FREE /
     Q16 (F8.2) /* Cleaned Social Distancing Post-Intervention Score */.
 
 BEGIN DATA.
-/* Your 133 parsed rows of spreadsheet rows go directly inside this block on execution */
+/* 133 parsed rows of spreadsheet rows go directly inside this block on execution */
 END DATA.
 
 * 2. DATA DICTIONARY SYSTEM VARIABLE LABELS.
@@ -48,7 +47,7 @@ DESCRIPTIVES VARIABLES=Q9 Q10 Q11 Q12 Q13 Q14 Q15 Q16
   /STATISTICS=MEAN STDDEV MIN MAX SKEWNESS KURTOSIS.
 
 * 4. ADVANCED REPEATED MEASURES ANALYSIS (GLM SYSTEM).
-* Executing four independent within-subject evaluations to match your F-matrix and p-value results.
+* Executing four independent within-subject evaluations to match F-matrix and p-value results.
 
 * Test A: Global Stigma Pre vs Post Intervention (Yields p-value = 0.889).
 GLM Q11 Q12
